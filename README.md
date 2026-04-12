@@ -1,6 +1,6 @@
 # OpenWhiz ⚡
 
-**OpenWhiz** is a high-performance, zero-dependency and header-only C++ AI library designed for seamless integration into Desktop, Mobile, Web (via WASM), and Industrial applications. Developed by **AITIAL Paris**, it focuses on speed and mathematical accuracy deployment.
+**OpenWhiz** is a high-performance, zero-dependency and header-only C++ deep learning AI library designed for seamless integration into Desktop, Mobile, Web (via WASM), and Industrial applications. Developed by **AITIAL Paris**, it focuses on speed and mathematical accuracy deployment.
 
 ---
 
