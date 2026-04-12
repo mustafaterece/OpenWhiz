@@ -34,7 +34,7 @@ OpenWhiz simplifies network construction through high-level project types, categ
 ### 🎯 Supervised Learning
 Requires target labels/values for training. The network learns a mapping from inputs to outputs.
 *   **APPROXIMATION:** Continuous function fitting (Regression) for industrial modeling and physical simulations.
-*   **FORECASTING:** Time-series prediction. Automatically inserts an `owSlidingWindowLayer` to handle temporal dependencies and an `owInverseNormalizationLayer` to restore original scales.
+*   **FORECASTING:** Time-series prediction for financial markets, macroeconomic indicators, demand planning, and predictive maintenance of machinery to anticipate future states or failures.
 *   **CLASSIFICATION:** Categorical prediction (Multi-class/Binary) for decision-making and pattern recognition.
 
 ### 🔍 Unsupervised Learning
