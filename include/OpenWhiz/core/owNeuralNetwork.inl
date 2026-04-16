@@ -483,18 +483,22 @@ inline void owNeuralNetwork::runStandardTrainingLoop() {
         }
         
         // --- INDEPENDENT BRANCH MONITORING ---
-        // We look for ConcatenateLayers and check their branches
         for (auto& layer : m_layers) {
+            // Check for ConcatenateLayers specifically to monitor their internal experts
             auto concat = std::dynamic_pointer_cast<owConcatenateLayer>(layer);
             if (concat) {
-                // We need access to concat's branches. 
-                // Let's assume branches are accessible or use a more generic way.
-                // For now, we'll implement this logic inside ConcatenateLayer::train() 
-                // or right here if we add a getBranches method.
+                for (auto& branch : concat->getBranches()) {
+                    if (branch->isIndependentExpertMode() && branch->getConvergenceThreshold() > 0 && !branch->isFrozen()) {
+                        float localErr = branch->computeLocalLoss(trainTarget);
+                        if (localErr < branch->getConvergenceThreshold()) {
+                            branch->setFrozen(true);
+                        }
+                    }
+                }
             }
             
-            // Generic check for any layer in Expert Mode
-            if (layer->isIndependentExpertMode() && layer->getConvergenceThreshold() > 0) {
+            // Generic check for any layer in Expert Mode (Sequential, etc.)
+            if (layer->isIndependentExpertMode() && layer->getConvergenceThreshold() > 0 && !layer->isFrozen()) {
                 float localErr = 1e30f;
                 auto seq = std::dynamic_pointer_cast<owSequentialLayer>(layer);
                 if (seq) localErr = seq->computeLocalLoss(trainTarget);
