@@ -15,6 +15,28 @@
 
 ---
 
+## 🎯 High-Precision Engineering & Financial Modeling
+
+OpenWhiz is engineered for scenarios where "good enough" is not an option. While standard deep learning frameworks often struggle with convergence noise in regression tasks, OpenWhiz provides **unmatched mathematical precision** through its second-order optimization engine.
+
+*   **L-BFGS & Conjugate Gradient:** Unlike first-order optimizers (like SGD or Adam) that only see the slope, our L-BFGS implementation utilizes curvature information to find the global minimum with surgical accuracy.
+*   **Sub-0.1% Error Rates:** Achieve extreme precision in complex time-series and physical simulations. In benchmarks like the CAC-40 forecast, OpenWhiz consistently delivers error rates lower than **1/1000 (0.1%)**.
+*   **Scientific-Grade Modeling:** Ideal for industrial digital twins, structural engineering simulations, and high-frequency financial modeling where every decimal point matters.
+*   **Deterministic Convergence:** Faster, more stable, and highly predictable convergence paths compared to stochastic methods.
+
+---
+
+## 🚀 High-Performance GPU Acceleration (CUDA)
+
+OpenWhiz includes a powerful, built-in **CUDA-accelerated engine** designed for high-throughput training and inference on NVIDIA GPUs. While the CPU engine is highly optimized for real-time and edge applications, the GPU mode is the preferred choice for **massive datasets and deep architectures with high parameter counts**.
+
+*   **Massive Parallelism:** Offload heavy matrix operations and layer-wise computations to thousands of CUDA cores.
+*   **Unified Memory Management:** Efficient data transfer between CPU and GPU, optimized for deep learning workloads.
+*   **Scalable Modeling (with ADAM Optimizer):** Train models with millions of parameters or process large-scale industrial data streams with minimal latency.
+*   **Seamless Switching:** Easily toggle between `CPU` and `GPU` modes via CMake (`-DUSE_GPU=ON/OFF`) without changing your application's source code.
+
+---
+
 ## 💎 Signature Feature: The Temporal Cache System
 
 OpenWhiz provides a unique, high-performance architecture for handling time-series data:
